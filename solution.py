@@ -13,15 +13,15 @@ MAX FLOW ACROSS NETWORK
 NOTE: The input data contains verticies named 1 through n, however, 
       the main function of this program generates an equivalent graph with verticies named 0 through n-1. 
 
-    Thus the source vertex for the graph is (0) and the sink is (n-1)       
+      Thus the source vertex for the graph is (0) and the sink is (n-1)       
 
 '''
 class GraphStruct():
     def __init__(self, graph):
         self.graph = graph
         self.size = len(graph)
-
-'''
+    
+    '''
                     Function: path_exists
         BFS based function to determine the existance of a path 
         between two verticies
@@ -29,7 +29,7 @@ class GraphStruct():
         INPUT: starting vertex, ending vertex, parent list
 
         RETURNS: True if path exists, False if path doesnt exist
-'''
+    '''
 
     def path_exists(self, fromV, toV, parent):
         visited = [False] * self.size
@@ -51,14 +51,14 @@ class GraphStruct():
         return visited[toV]
 
 
-'''
+    '''
                     Function: fulkerson
         implementation of Ford-Fulkerson algorithm
 
         INPUT: source vertex, sink vertex
 
         RETURNS: True if path exists, False if path doesnt exist
-'''
+    '''
 
     def fulkerson(self, source, sink):
         pass
@@ -91,6 +91,7 @@ def main():
     #initilize obj
     flowGraph = GraphStruct(graph)
 
+    
 
 
 
