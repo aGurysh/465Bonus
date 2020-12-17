@@ -108,10 +108,6 @@ def main():
         toV = edgeData[1]
         capacity = edgeData[2]
 
-        
-
-        
-        
         graph[fromV-1][toV-1] += capacity
 
    
