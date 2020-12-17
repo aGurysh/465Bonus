@@ -62,7 +62,7 @@ class GraphStruct():
 
     def fulkerson(self, source, sink):
         #set up parent list, define var for result
-        parent = [-1] * self.size
+        parent = [-1] * (self.size)
         maximumFlow = 0
 
         #loop until no path from source to sink
@@ -100,7 +100,7 @@ def main():
     nEdges = graphData[1]
 
     #constructing graph as 2D array
-    graph = [ [0]* (nVerticies) for i in range(nVerticies)]
+    graph = [ [0] * (nVerticies) for i in range(nVerticies)]
 
     for _ in range(nEdges):
         edgeData = [int(x) for x in input().split()]
@@ -108,8 +108,11 @@ def main():
         toV = edgeData[1]
         capacity = edgeData[2]
 
-        #rewriting the given graph to be 0-indexed
-        graph[fromV-1][toV-1] = capacity
+        
+
+        
+        
+        graph[fromV-1][toV-1] += capacity
 
    
 
