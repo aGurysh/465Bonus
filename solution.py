@@ -61,8 +61,34 @@ class GraphStruct():
     '''
 
     def fulkerson(self, source, sink):
-        pass
+        #set up parent list, define var for result
+        parent = [-1] * self.size
+        maximumFlow = 0
 
+        #loop until no path from source to sink
+        while self.path_exists(source, sink, parent):
+            thisPathFlow = float("Inf")
+            tempV = sink
+
+            #the max flow on this path is equal to the smallest edge capacity it contains
+            while(tempV != source):
+                #reduce thisPathFlow if neccesary
+                thisPathFlow = min(thisPathFlow, self.graph[parent[tempV]][tempV])
+                #move tempV towards source
+                tempV = parent[tempV]
+
+            #add the max flow for this path to the total
+            maximumFlow += thisPathFlow
+
+            #now update residual values in graph
+            tempV2 = sink
+            while(tempV2 != source):
+                p = parent[tempV2]
+                self.graph[p][tempV2] -= thisPathFlow
+                self.graph[tempV2][p] += thisPathFlow
+                tempV2 = parent[tempV2]
+
+        return maximumFlow
 
 
 
@@ -90,6 +116,7 @@ def main():
 
     #initilize obj
     flowGraph = GraphStruct(graph)
+    print(flowGraph.fulkerson(0,nVerticies-1))
 
     
 
