@@ -109,7 +109,6 @@ def main():
         capacity = edgeData[2]
 
         #rewriting the given graph to be 0-indexed
-        # desired path will be from  edge #0 ->  edge #(nEdges -1)
         graph[fromV-1][toV-1] = capacity
 
    
